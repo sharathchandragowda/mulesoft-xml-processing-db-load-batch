@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:batch="http://www.mulesoft.org/schema/mule/batch"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd">
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="4f08d2ab-9a33-4817-884d-90671ad6b85f" >
+		<db:mssql-connection host="cloud-services.demos.mulesoft.com" port="32679" user="sa" password="Test123!" databaseName="master" />
+	</db:config>
+	<file:config name="File_Config" doc:name="File Config" doc:id="76ea257b-06e7-4452-9e81-68c59db84ced" >
+		<file:connection workingDir="/Users/sbangaloremunibaire/Desktop/Hibbett/Test" />
+	</file:config>
+	<flow name="xml-performanceFlow" doc:id="a5a6565b-e3a8-464c-97c4-96b0a98711a8" >
+		<scheduler doc:name="Scheduler" doc:id="af7f3bd9-37f0-4900-af2e-8ff9bcdd6274" >
+			<scheduling-strategy >
+				<fixed-frequency frequency="1" timeUnit="HOURS"/>
+			</scheduling-strategy>
+		</scheduler>
+		<ee:transform doc:name="beginTime varibale to hold value after execution of previous DB job" doc:id="d5133c0e-80e0-4086-94ea-7508512d776c">
+			<ee:message />
+			<ee:variables>
+				<ee:set-variable variableName="beginTime"><![CDATA[%dw 2.0
+import * from dw::util::Timer
+--- 
+currentMilliseconds()]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<file:list doc:name="List all the files in the directory or path" doc:id="87d16c72-0e5c-49b0-a5f9-3c0ea2e7bd37" directoryPath="/Users/sbangaloremunibaire/Desktop/Hibbett/Archive_Radial_OTF_10"/>
+		<ee:transform doc:name="Extract the path of each file in the directory" doc:id="693649e3-5029-40b7-bf12-349843e57369" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+payload.typedAttributes.path]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<batch:job jobName="xml-performanceBatch_Job" doc:id="a594ad9e-8a08-4013-a6fd-9959339fd782">
+			<batch:process-records >
+				<batch:step name="Batch_Step" doc:id="36049fea-d1d7-4325-9e76-dc4e5cfe79e1" >
+					<file:read doc:name="Read each file in non-repeatable stream" doc:id="8d0e9b32-b2c8-4564-abcd-3b9a091eb0e2" config-ref="File_Config" path="#[payload]">
+						<non-repeatable-stream />
+					</file:read>
+					<ee:transform doc:name="Map the attributes for Data Orchestration as needed" doc:id="a50ab965-2a60-480f-9b8f-40208484f5c1">
+						<ee:message>
+							<ee:set-payload><![CDATA[%dw 2.0
+output application/xml
+---
+{
+	OrdersToFulfill: {
+		Order: payload.OrdersToFulfill.Order
+	}
+}]]></ee:set-payload>
+						</ee:message>
+					</ee:transform>
+					<db:stored-procedure doc:name="Calling the procedure to populate multiple tables" doc:id="2883db41-19bd-432a-b5d9-2f5d05a89af6" config-ref="Database_Config">
+						<db:sql><![CDATA[{ call dbo.testProcedureMulePKFKPTT(:pkid, :OMSOrderId, :CustomerOrderId, :OrderType, :FulfillmentChannel, :FacilityId, :Locale, :SplitOrderIndicator) }]]></db:sql>
+						<db:input-parameters><![CDATA[#[{
+	'OMSOrderId': payload.OrdersToFulfill.Order.OrderHeader.OMSOrderId,
+	'CustomerOrderId': payload.OrdersToFulfill.Order.OrderHeader.CustomerOrderId,
+	'OrderType': payload.OrdersToFulfill.Order.OrderHeader.OrderType,
+	'FulfillmentChannel': payload.OrdersToFulfill.Order.OrderHeader.FulfillmentChannel,
+	'FacilityId': payload.OrdersToFulfill.Order.OrderHeader.FacilityId,
+	'Locale': payload.OrdersToFulfill.Order.OrderHeader.Locale,
+	'SplitOrderIndicator': payload.OrdersToFulfill.Order.OrderHeader.SplitOrderIndicator,
+	'pkid': randomInt(1999999999) - randomInt(99999999) - randomInt(999999) + randomInt(9999)
+	}]]]></db:input-parameters>
+					</db:stored-procedure>
+				</batch:step>
+			</batch:process-records>
+			<batch:on-complete >
+				<logger level="INFO" doc:name="Log the output of processed records" doc:id="58e22f23-eafc-4e2b-8972-5ccf2ea4b17d" message="#[payload.processedRecords]"/>
+			</batch:on-complete>
+		</batch:job>
+		<ee:transform doc:name="elapseTime to determine time taken to complete batch job" doc:id="71526243-8094-42b4-aa89-f81e46053cfa" >
+			<ee:message />
+			<ee:variables >
+				<ee:set-variable variableName="elapseTime" ><![CDATA[%dw 2.0
+import * from dw::util::Timer
+--- 
+currentMilliseconds() - vars.beginTime]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<logger level="INFO" doc:name="Display time elapse value" doc:id="1e86d374-3249-43f4-837f-00a1e5d44a59" message='#["****************** Elpased time (msec): " ++ vars.elapseTime ++ " ******************"]' />
+	</flow>
+</mule>

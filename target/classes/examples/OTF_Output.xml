@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<OrdersToFulfill xsi:noNamespaceSchemaLocation="schema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <MessageHeader>
+    <Standard>string</Standard>
+    <HeaderVersion>string</HeaderVersion>
+    <VersionReleaseNumber>string</VersionReleaseNumber>
+    <SourceData>
+      <SourceId>string</SourceId>
+      <SourceType>string</SourceType>
+    </SourceData>
+    <DestinationData>
+      <DestinationId>string</DestinationId>
+      <DestinationType>string</DestinationType>
+    </DestinationData>
+    <DestinationData>
+      <DestinationId>string</DestinationId>
+      <DestinationType>string</DestinationType>
+    </DestinationData>
+    <DestinationData>
+      <DestinationId>string</DestinationId>
+      <DestinationType>string</DestinationType>
+    </DestinationData>
+    <DestinationData>
+      <DestinationId>string</DestinationId>
+      <DestinationType>string</DestinationType>
+    </DestinationData>
+    <EventType>string</EventType>
+    <MessageData>
+      <MessageId>string</MessageId>
+      <CorrelationId>string</CorrelationId>
+    </MessageData>
+    <CreateDateAndTime>1979-08-21T09:32:40.84</CreateDateAndTime>
+  </MessageHeader>
+  <Order>
+    <OrderHeader>
+      <ClientId>string</ClientId>
+      <gsi_client_id>string</gsi_client_id>
+      <gsi_store_id>string</gsi_store_id>
+      <FacilityId>string</FacilityId>
+      <ExternalReferenceFacilityId>string</ExternalReferenceFacilityId>
+      <FulfillmentChannel>string</FulfillmentChannel>
+      <OrderType>XMOBILE</OrderType>
+      <OMSOrderId>2734</OMSOrderId>
+      <CustomerOrderId>string</CustomerOrderId>
+      <SplitOrderIndicator></SplitOrderIndicator>
+      <OrderEntryDateTime>1987-08-27T19:35:34.95</OrderEntryDateTime>
+      <InvoiceCreateDateTime>2000-12-20T23:32:38.47</InvoiceCreateDateTime>
+      <PromiseShipDate>2002-05-22T20:49:31.28</PromiseShipDate>
+      <PromiseReceiptDate>1989-10-01T22:05:16.50</PromiseReceiptDate>
+      <Locale>ABCD</Locale>
+      <BillTo>
+        <CustomerId>string</CustomerId>
+        <FirstName>string</FirstName>
+        <Address>
+          <AddressLine1>string</AddressLine1>
+          <City>string</City>
+          <CountryCode>AB</CountryCode>
+        </Address>
+      </BillTo>
+      <ShipTo>
+        <CustomerId>string</CustomerId>
+        <FirstName>string</FirstName>
+        <Address>
+          <AddressLine1>string</AddressLine1>
+          <City>string</City>
+          <CountryCode></CountryCode>
+        </Address>
+      </ShipTo>
+      <Carrier>
+        <Name>string</Name>
+        <CarrierId>AB</CarrierId>
+        <CarrierServiceLevel>string</CarrierServiceLevel>
+      </Carrier>
+      <InvoiceAmount>
+        <Amount>
+          <AmountType>string</AmountType>
+          <MonetaryAmount>280040.23491</MonetaryAmount>
+          <CurrencyCode>AB</CurrencyCode>
+        </Amount>
+      </InvoiceAmount>
+      <InvoiceAmount>
+        <Amount>
+          <AmountType>string</AmountType>
+          <MonetaryAmount>2683590.23491</MonetaryAmount>
+          <CurrencyCode>A</CurrencyCode>
+        </Amount>
+      </InvoiceAmount>
+      <InvoiceAmount>
+        <Amount>
+          <AmountType>string</AmountType>
+          <MonetaryAmount>2973620.23491</MonetaryAmount>
+          <CurrencyCode></CurrencyCode>
+        </Amount>
+      </InvoiceAmount>
+      <Payment>
+        <PaymentReference>string</PaymentReference>
+        <AdditionalPaymentDetails />
+      </Payment>
+      <TaxInvoice>
+        <TaxInvoiceType>string</TaxInvoiceType>
+        <Locale>ABCD</Locale>
+        <CurrencyCode>AB</CurrencyCode>
+        <SendWithShipmentIndicator></SendWithShipmentIndicator>
+        <InvoiceTemplate />
+        <TaxInvoiceData>
+          <TaxInvoiceId>string</TaxInvoiceId>
+          <TaxInvoiceDate>1983-05-19</TaxInvoiceDate>
+        </TaxInvoiceData>
+      </TaxInvoice>
+      <TaxInvoice>
+        <TaxInvoiceType>string</TaxInvoiceType>
+        <CurrencyCode></CurrencyCode>
+        <SendWithShipmentIndicator></SendWithShipmentIndicator>
+        <TaxInvoiceData>
+          <TaxInvoiceId>string</TaxInvoiceId>
+          <TaxInvoiceDate>2006-08-27</TaxInvoiceDate>
+        </TaxInvoiceData>
+      </TaxInvoice>
+      <TaxInvoice>
+        <TaxInvoiceType>string</TaxInvoiceType>
+        <CurrencyCode>AB</CurrencyCode>
+        <SendWithShipmentIndicator></SendWithShipmentIndicator>
+        <InvoiceTemplate />
+        <TaxInvoiceData>
+          <TaxInvoiceId>string</TaxInvoiceId>
+          <TaxInvoiceDate>1987-08-14</TaxInvoiceDate>
+        </TaxInvoiceData>
+      </TaxInvoice>
+      <TaxInvoice>
+        <TaxInvoiceType>string</TaxInvoiceType>
+        <Locale></Locale>
+        <CurrencyCode>A</CurrencyCode>
+        <ConversionRate>-476283</ConversionRate>
+        <SendWithShipmentIndicator></SendWithShipmentIndicator>
+        <InvoiceTemplate />
+        <TaxInvoiceData>
+          <TaxInvoiceId>string</TaxInvoiceId>
+          <TaxInvoiceDate>1973-09-18</TaxInvoiceDate>
+        </TaxInvoiceData>
+      </TaxInvoice>
+      <PaymentInvoice>
+        <PaymentInvoiceType>string</PaymentInvoiceType>
+        <Locale>A</Locale>
+      </PaymentInvoice>
+      <Comment />
+      <Gift />
+      <ExtendedAttributes />
+      <ExtendedAttributes />
+      <ExtendedAttributes />
+    </OrderHeader>
+    <OrderDetail>
+      <LineNumber>-3121</LineNumber>
+      <ItemId>
+        <GsiCatalogId>ABC</GsiCatalogId>
+        <ClientItemId>string</ClientItemId>
+        <OMSItemId>3542</OMSItemId>
+        <UPCList>
+          <ItemUPC>
+            <UPC>string</UPC>
+            <UPCType>string</UPCType>
+          </ItemUPC>
+        </UPCList>
+        <ExtendedAttributes />
+        <ExtendedAttributes />
+      </ItemId>
+      <ItemAttributes>
+        <ItemDescription>string</ItemDescription>
+        <ColorDescription>string</ColorDescription>
+        <OrderedQuantity>-3471169.77</OrderedQuantity>
+        <OriginalUnitPrice>57670.23491</OriginalUnitPrice>
+        <CurrencyCode></CurrencyCode>
+        <ProductLine>string</ProductLine>
+        <ConfigurationId>string</ConfigurationId>
+        <KitCode>string</KitCode>
+        <ReshipFlag>0</ReshipFlag>
+        <ExtendedAttributes />
+        <ExtendedAttributes />
+      </ItemAttributes>
+      <Promotions>
+        <Promotion>
+          <PromotionId>string</PromotionId>
+        </Promotion>
+      </Promotions>
+      <LineAmount>
+        <Amount>
+          <AmountType>string</AmountType>
+          <MonetaryAmount>3702440.23491</MonetaryAmount>
+          <CurrencyCode>AB</CurrencyCode>
+        </Amount>
+      </LineAmount>
+      <Comment />
+      <Comment />
+      <Comment />
+      <Comment />
+      <Gift />
+      <Gift />
+      <AccessCode>string</AccessCode>
+      <OrderLineRelationships />
+      <RewardPoints>
+        <PerUnit>675</PerUnit>
+        <Multiplier>4057140.23491</Multiplier>
+      </RewardPoints>
+    </OrderDetail>
+    <OrderDetail>
+      <LineNumber>-2137</LineNumber>
+      <ItemId>
+        <GsiCatalogId>A</GsiCatalogId>
+        <ClientItemId>string</ClientItemId>
+        <OMSItemId>-1892</OMSItemId>
+        <ExtendedAttributes />
+        <ExtendedAttributes />
+        <ExtendedAttributes />
+        <ExtendedAttributes />
+      </ItemId>
+      <ItemAttributes>
+        <ItemDescription>string</ItemDescription>
+        <ColorDescription>string</ColorDescription>
+        <OrderedQuantity>1724170.23</OrderedQuantity>
+        <OriginalUnitPrice>3683650.23491</OriginalUnitPrice>
+        <CurrencyCode>A</CurrencyCode>
+        <ConfigurationId>string</ConfigurationId>
+        <KitCode>string</KitCode>
+        <ReshipFlag>false</ReshipFlag>
+        <ExtendedAttributes />
+        <ExtendedAttributes />
+        <ExtendedAttributes />
+      </ItemAttributes>
+      <KitLines>
+        <KitLine>
+          <ClientItemId>string</ClientItemId>
+          <KitQty>-3514169.76509</KitQty>
+          <ProductClass>string</ProductClass>
+          <UnitOfMeasure>string</UnitOfMeasure>
+        </KitLine>
+      </KitLines>
+      <LineAmount>
+        <Amount>
+          <AmountType>string</AmountType>
+          <MonetaryAmount>-1632269.76509</MonetaryAmount>
+          <CurrencyCode></CurrencyCode>
+        </Amount>
+      </LineAmount>
+      <LineAmount>
+        <Amount>
+          <AmountType>string</AmountType>
+          <MonetaryAmount>-1778409.76509</MonetaryAmount>
+          <CurrencyCode></CurrencyCode>
+        </Amount>
+      </LineAmount>
+      <Tax>
+        <TaxType>string</TaxType>
+        <Exemption></Exemption>
+        <Situs>string</Situs>
+        <Imposition>string</Imposition>
+        <ImpositionType>string</ImpositionType>
+        <TaxRate>970970.23</TaxRate>
+        <TransactionalTaxAmount>-3986509.76509</TransactionalTaxAmount>
+        <ChargeCategory>string</ChargeCategory>
+      </Tax>
+      <Comment />
+      <Comment />
+      <ShipGroup>
+        <ShipGroupType></ShipGroupType>
+        <ShipGroupName>string</ShipGroupName>
+      </ShipGroup>
+      <SpecialHandlingCode>string</SpecialHandlingCode>
+      <AccessCode>string</AccessCode>
+      <ProxyPickupInfo>
+        <ProxyPickupEmail>string</ProxyPickupEmail>
+        <ProxyPickupName>string</ProxyPickupName>
+        <ProxyPickupPhoneNumber>string</ProxyPickupPhoneNumber>
+        <ProxyRelationshipType>string</ProxyRelationshipType>
+        <ProxyPickupAddress>
+          <AddressLine1>string</AddressLine1>
+          <City>string</City>
+          <CountryCode>AB</CountryCode>
+        </ProxyPickupAddress>
+      </ProxyPickupInfo>
+      <ExtendedAttributes />
+      <ExtendedAttributes />
+      <ExtendedAttributes />
+      <ExtendedAttributes />
+    </OrderDetail>
+    <OrderDetail>
+      <LineNumber>3966</LineNumber>
+      <ItemId>
+        <GsiCatalogId></GsiCatalogId>
+        <ClientItemId>string</ClientItemId>
+        <OMSItemId>-2723</OMSItemId>
+        <ManufacturerItemId>string</ManufacturerItemId>
+        <UPCList>
+          <ItemUPC>
+            <UPC>string</UPC>
+            <UPCType>string</UPCType>
+          </ItemUPC>
+        </UPCList>
+        <ExtendedAttributes />
+        <ExtendedAttributes />
+      </ItemId>
+      <ItemAttributes>
+        <ItemDescription>string</ItemDescription>
+        <OrderedQuantity>-2816489.77</OrderedQuantity>
+        <OriginalUnitPrice>-2346889.76509</OriginalUnitPrice>
+        <OriginalRetailUnitPrice>3730770.23491</OriginalRetailUnitPrice>
+        <CurrencyCode></CurrencyCode>
+      </ItemAttributes>
+      <LineAmount>
+        <Amount>
+          <AmountType>string</AmountType>
+          <MonetaryAmount>4054910.23491</MonetaryAmount>
+          <CurrencyCode>A</CurrencyCode>
+        </Amount>
+      </LineAmount>
+      <LineAmount>
+        <Amount>
+          <AmountType>string</AmountType>
+          <MonetaryAmount>966220.23491</MonetaryAmount>
+          <CurrencyCode></CurrencyCode>
+        </Amount>
+      </LineAmount>
+      <Tax>
+        <TaxType>string</TaxType>
+        <Exemption></Exemption>
+        <Situs>string</Situs>
+        <Jurisdiction>string</Jurisdiction>
+        <Imposition>string</Imposition>
+        <ImpositionType>string</ImpositionType>
+        <BasisAmount>-2823959.76509</BasisAmount>
+        <TransactionalTaxAmount>690680.23491</TransactionalTaxAmount>
+        <ChargeCategory>string</ChargeCategory>
+        <ChargeName>string</ChargeName>
+      </Tax>
+      <Tax>
+        <TaxType>string</TaxType>
+        <Exemption></Exemption>
+        <Situs>string</Situs>
+        <Jurisdiction>string</Jurisdiction>
+        <JurisdictionLevel>string</JurisdictionLevel>
+        <JurisdictionId>4113</JurisdictionId>
+        <TaxRate>82400.234</TaxRate>
+        <BasisAmount>-3957069.76509</BasisAmount>
+        <TransactionalTaxAmount>-2753909.76509</TransactionalTaxAmount>
+        <ChargeCategory>string</ChargeCategory>
+        <ChargeName>string</ChargeName>
+      </Tax>
+      <Tax>
+        <TaxType>string</TaxType>
+        <Exemption></Exemption>
+        <Situs>string</Situs>
+        <JurisdictionId>-864</JurisdictionId>
+        <Imposition>string</Imposition>
+        <ImpositionType>string</ImpositionType>
+        <TaxRate>1613040.2</TaxRate>
+        <BasisAmount>1664710.23491</BasisAmount>
+        <TransactionalTaxAmount>2436620.23491</TransactionalTaxAmount>
+        <ChargeCategory>string</ChargeCategory>
+      </Tax>
+      <Tax>
+        <TaxType>string</TaxType>
+        <Exemption></Exemption>
+        <Situs>string</Situs>
+        <Jurisdiction>string</Jurisdiction>
+        <JurisdictionId>-682</JurisdictionId>
+        <ImpositionType>string</ImpositionType>
+        <TaxRate>4929940.2</TaxRate>
+        <TransactionalTaxAmount>2998850.23491</TransactionalTaxAmount>
+        <ChargeCategory>string</ChargeCategory>
+        <ChargeName>string</ChargeName>
+      </Tax>
+      <Gift />
+      <Gift />
+      <ProxyPickupInfo>
+        <ProxyPickupEmail>string</ProxyPickupEmail>
+        <ProxyPickupName>string</ProxyPickupName>
+        <ProxyPickupPhoneNumber>string</ProxyPickupPhoneNumber>
+        <ProxyRelationshipType>string</ProxyRelationshipType>
+        <ProxyPickupAddress>
+          <AddressLine1>string</AddressLine1>
+          <City>string</City>
+          <CountryCode></CountryCode>
+        </ProxyPickupAddress>
+      </ProxyPickupInfo>
+      <OrderLineRelationships />
+      <ServicesInstructions>
+        <ServicesInstruction />
+        <ServicesInstruction />
+        <ServicesInstruction />
+      </ServicesInstructions>
+      <ExtendedAttributes />
+      <ExtendedAttributes />
+      <ExtendedAttributes />
+      <ExtendedAttributes />
+    </OrderDetail>
+  </Order>
+</OrdersToFulfill>
