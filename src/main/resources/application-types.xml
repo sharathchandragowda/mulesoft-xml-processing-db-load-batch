@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="Input" format="xml">
+      <types:example format="xml" element="OrdersToFulfill" location="examples/HIBNA_78_HIBUS_OrdersToFulfill_201910010441190342_BP41909753.xml"/>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#a50ab965-2a60-480f-9b8f-40208484f5c1">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="Input"/>
+        </types:message>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="Input"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
